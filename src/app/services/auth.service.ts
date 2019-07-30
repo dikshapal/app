@@ -8,7 +8,7 @@ export class AuthService {
   constructor(private http: Http) {
   }
 
-  login(credentials) { 
+  login(credentials: any) { 
    return this.http.post('/api/authenticate', 
       JSON.stringify(credentials))
       .map(response => {

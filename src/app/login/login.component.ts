@@ -16,12 +16,12 @@ export class LoginComponent {
     private route: ActivatedRoute,
     private authService: AuthService) { }
 
-  signIn(credentials) {
+  signIn(credentials: any) {
     this.authService.login(credentials)
       .subscribe(result => { 
         if (result) {
           let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-          this.router.navigate([returnUrl || '/']);
+          this.router.navigate([returnUrl || '/']); 
         }
         else  
           this.invalidLogin = true; 
