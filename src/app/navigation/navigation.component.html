@@ -1,0 +1,15 @@
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      
+      <li *ngIf="authService.isLoggedIn() && authService.currentUser.admin"><a routerLink="/admin">Admin</a></li>
+      <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login">Login</a></li>
+      <li *ngIf="authService.isLoggedIn()"><a (click)="authService.logout()" routerLink="/login">Logout</a></li>
+      <li *ngIf="!authService.isLoggedIn()"><a routerLink="/signup">Register</a></li>
+  
+    </ul>
+  </nav>
+  <h3 *ngIf="authService.isLoggedIn()" class="text-muted">Welcome {{authService.currentUser.name}}</h3>
+  <h3 *ngIf="!authService.isLoggedIn()" class="text-muted">Welcome</h3>
+
+</div>
